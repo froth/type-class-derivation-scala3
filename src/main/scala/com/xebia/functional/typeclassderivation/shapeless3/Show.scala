@@ -33,3 +33,8 @@ object Show:
 
   inline def derived[A](using gen: K0.Generic[A]): Show[A] =
     gen.derive(deriveShowProduct, deriveShowSum)
+
+object IWantThisToCompile:
+    enum StatusEnum derives Show:
+      case Good(score: Int)
+      case Bad(reason: String)
