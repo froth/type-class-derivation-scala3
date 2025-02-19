@@ -31,5 +31,5 @@ object Show:
   ): Show[A] =
     (a: A) => cInst.fold(a)([a] => (st: Show[a], a: a) => st.show(a))
 
-  inline given derived[A](using gen: K0.Generic[A]): Show[A] =
+  inline def derived[A](using gen: K0.Generic[A]): Show[A] =
     gen.derive(deriveShowProduct, deriveShowSum)
